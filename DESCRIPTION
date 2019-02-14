@@ -1,11 +1,17 @@
 Package: rmdtool
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Private Tools to document in R
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Authors@R: person("Young-geun", "Kim", email = "dudrmshub.gmail.com", role = c("aut", "cre"))
+Maintainer: Young-geun Kim <dudrmshub@gmail.com>
+Description: Provides assistant tools for R markdown
+    mainly in pdf documents
+Imports:
+    knitr,
+    rmarkdown
+Suggests:
+    pander,
+    tidyverse
+License: GPL
 Encoding: UTF-8
 LazyData: true
