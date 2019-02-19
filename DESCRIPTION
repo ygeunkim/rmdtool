@@ -7,11 +7,11 @@ Maintainer: Young-geun Kim <dudrmshub@gmail.com>
 Description: Provides assistant tools for R markdown
     mainly in pdf documents
 Imports:
-    knitr,
-    rmarkdown
+    knitr (>= 1.21),
+    rmarkdown (>= 1.11)
 Suggests:
-    pander,
-    tidyverse
+    pander (>= 0.6),
+    tidyverse (>= 1.2)
 License: GPL
 Encoding: UTF-8
 LazyData: true
