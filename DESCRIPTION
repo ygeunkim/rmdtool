@@ -2,16 +2,16 @@ Package: rmdtool
 Type: Package
 Title: Private Tools to document in R
 Version: 0.1.0
-Authors@R: person("Young-geun", "Kim", email = "dudrmshub.gmail.com", role = c("aut", "cre"))
+Authors@R: person("Young-geun", "Kim", email = "dudrmshub@gmail.com", role = c("aut", "cre"))
 Maintainer: Young-geun Kim <dudrmshub@gmail.com>
 Description: Provides assistant tools for R markdown
     mainly in pdf documents
 Imports:
-    knitr (>= 1.21),
-    rmarkdown (>= 1.11)
+    knitr
 Suggests:
-    pander (>= 0.6),
-    tidyverse (>= 1.2)
+    dplyr,
+    pander,
+    ggplot2
 License: GPL
 Encoding: UTF-8
 LazyData: true

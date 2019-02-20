@@ -1,5 +1,6 @@
 #' Inline latex method for matrix
 #'
+#' @description
 #' Write R matrix object in Latex block
 #' @param x R matrix object
 #' @examples

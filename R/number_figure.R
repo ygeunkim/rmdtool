@@ -1,5 +1,6 @@
 #' Cross reference a figure caption
 #'
+#' @description
 #' list, cross reference a `fig.cap` in r markdown with label and link of pdf
 #' @param refer of `$cap` refer the figure caption, same as the chunk name
 #' @param title of `$cap` caption of the plot

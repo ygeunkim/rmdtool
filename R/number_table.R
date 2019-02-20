@@ -1,5 +1,6 @@
 #' Cross reference a figure caption
 #'
+#' @description
 #' list, cross reference a table in r markdown with label and link of pdf
 #' @param refer of `$cap` refer the table caption, same as the table name
 #' @param title of `$cap` caption of the table
