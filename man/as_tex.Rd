@@ -17,9 +17,6 @@ as_tex(x, ...)
 }
 \description{
 `as_tex()` can be applied to a `character` or a `matrix` object, so that the input is changed into the new object `tex`. This might make up the defect of `knitr_print` method for matrix.
-`as_tex()` is an S3 generic, with methods for:
-* [`character`][base::character()]
-* [`matrix`][methods::matrix-class]: bmatrix form of latex
 }
 \examples{
 A <- matrix(1:10, nrow = 2)

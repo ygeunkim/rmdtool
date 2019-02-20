@@ -27,9 +27,6 @@ bmatrix <- function(x) {
 #'
 #' @description
 #' `as_tex()` can be applied to a `character` or a `matrix` object, so that the input is changed into the new object `tex`. This might make up the defect of `knitr_print` method for matrix.
-#' `as_tex()` is an S3 generic, with methods for:
-#' * [`character`][base::character()]
-#' * [`matrix`][methods::matrix-class]: bmatrix form of latex
 #' @param x `character` or `matrix` object to be `tex`
 #' @examples
 #' A <- matrix(1:10, nrow = 2)
@@ -60,10 +57,12 @@ as_tex.matrix <- function(x, ...) {
   as_tex(paste(c(begin, X, end), collapse = " "))
 }
 
-#' Print tex class as latex
+#' Print tex or matrix class as latex
 #'
-#' `knitr_print()` will print math form in the r markdown chunk. `results = 'asis'` option should be assigned to that chunk.
-#' @param x `tex` to be printed
+#' @description
+#' `knitr_print()` will print matrix with math form in the r markdown chunk or inline. In the chunk, `results = 'asis'` option should be assigned to that chunk.
+#' Printing matrix becomes more compact. It will be printed math form in the inline, i.e. `r matrix`. Here, the function does not have to be specified. If in-chunk option is choosed, normal matrix form in R console will be printed.
+#' @param x `tex` or `matrix` to be printed
 #' @param inline Choose between inline versus in-chunk. The default is set to be `inline = FALSE`, in-chunk.
 #' @examples
 #' ```{r, results = 'asis'}
@@ -71,7 +70,8 @@ as_tex.matrix <- function(x, ...) {
 #' knitr_print(as_tex(A))
 #' ```
 #' @export
-knitr_print.tex <- function(x, inline = FALSE, ...) {
+#' @rdname knit_print
+knit_print.tex <- function(x, inline = FALSE, ...) {
   if (inline) {
     print(x)
   } else {
@@ -81,13 +81,9 @@ knitr_print.tex <- function(x, inline = FALSE, ...) {
   }
 }
 
-#' Print matrix as latex
-#'
-#' `knitr_print()` will now print math form in the inline, i.e. `r matrix`. Here, the function does not have to be specified. If in-chunk option is choosed, normal matrix form in R console will be printed.
-#' @param x `matrix` to be printed
-#' @param inline Choose between inline versus in-chunk. The default is set to be `inline = FALSE`, in-chunk.
 #' @export
-knitr_print.matrix <- function(x, inline = FALSE, ...) {
+#' @rdname knit_print
+knit_print.matrix <- function(x, inline = FALSE, ...) {
   if (inline) {
     as_tex(x)
   } else {
