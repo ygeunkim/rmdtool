@@ -23,9 +23,14 @@ bmatrix <- function(x) {
   paste(c(begin, X, end), collapse = "")
 }
 
-#' Tex class for matrix
+#' Coerce characters and matrices to tex
 #'
-#' Tex class to write math form easily
+#' `as_tex()` can be applied to a `character` or a `matrix` object, so that the input is changed into the new object `tex`. This might make up the defect of `knitr_print` method for matrix.
+#' @param x `character` or `matrix` object to be `tex`
+#' @examples
+#' A <- matrix(1:10, nrow = 2)
+#' as_tex(A)
+#' @export
 as_tex <- function(x, ...) {
   UseMethod("as_tex", x)
 }
@@ -47,9 +52,17 @@ as_tex.matrix <- function(x, ...) {
   as_tex(paste(c(begin, X, end), collapse = " "))
 }
 
-#' Print method for tex class
+#' Print tex class as latex
 #'
-#' Print method of `tex` class for `knitr_print`
+#' `knitr_print()` will print math form in the r markdown chunk. `results = 'asis'` option should be assigned to that chunk.
+#' @param x `tex` to be printed
+#' @param inline Choose between inline versus in-chunk. The default is set to be `inline = FALSE`, in-chunk.
+#' @examples
+#' ```{r, results = 'asis'}
+#' A <- matrix(1:10, nrow = 2)
+#' knitr_print(as_tex(A))
+#' ```
+#' @export
 knitr_print.tex <- function(x, inline = FALSE, ...) {
   if (inline) {
     print(x)
@@ -60,9 +73,12 @@ knitr_print.tex <- function(x, inline = FALSE, ...) {
   }
 }
 
-#' Print method for matrix class
+#' Print matrix as latex
 #'
-#' Print method of `matrix` for `knitr_print`
+#' `knitr_print()` will now print math form in the inline, i.e. `r matrix`. Here, the function does not have to be specified. If in-chunk option is choosed, normal matrix form in R console will be printed.
+#' @param x `matrix` to be printed
+#' @param inline Choose between inline versus in-chunk. The default is set to be `inline = FALSE`, in-chunk.
+#' @export
 knitr_print.matrix <- function(x, inline = FALSE, ...) {
   if (inline) {
     as_tex(x)

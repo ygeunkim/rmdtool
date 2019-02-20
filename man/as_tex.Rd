@@ -2,10 +2,17 @@
 % Please edit documentation in R/latex_print.R
 \name{as_tex}
 \alias{as_tex}
-\title{Tex class for matrix}
+\title{Coerce characters and matrices to tex}
 \usage{
 as_tex(x, ...)
 }
+\arguments{
+\item{x}{`character` or `matrix` object to be `tex`}
+}
 \description{
-Tex class to write math form easily
+`as_tex()` can be applied to a `character` or a `matrix` object, so that the input is changed into the new object `tex`. This might make up the defect of `knitr_print` method for matrix.
+}
+\examples{
+A <- matrix(1:10, nrow = 2)
+as_tex(A)
 }

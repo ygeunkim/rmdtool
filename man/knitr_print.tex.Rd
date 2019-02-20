@@ -2,10 +2,21 @@
 % Please edit documentation in R/latex_print.R
 \name{knitr_print.tex}
 \alias{knitr_print.tex}
-\title{Print method for tex class}
+\title{Print tex class as latex}
 \usage{
 knitr_print.tex(x, inline = FALSE, ...)
 }
+\arguments{
+\item{x}{`tex` to be printed}
+
+\item{inline}{Choose between inline versus in-chunk. The default is set to be `inline = FALSE`, in-chunk.}
+}
 \description{
-Print method of `tex` class for `knitr_print`
+`knitr_print()` will print math form in the r markdown chunk. `results = 'asis'` option should be assigned to that chunk.
+}
+\examples{
+```{r, results = 'asis'}
+A <- matrix(1:10, nrow = 2)
+knitr_print(as_tex(A))
+```
 }

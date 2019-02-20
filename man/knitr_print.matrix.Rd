@@ -2,10 +2,15 @@
 % Please edit documentation in R/latex_print.R
 \name{knitr_print.matrix}
 \alias{knitr_print.matrix}
-\title{Print method for matrix class}
+\title{Print matrix as latex}
 \usage{
 knitr_print.matrix(x, inline = FALSE, ...)
 }
+\arguments{
+\item{x}{`matrix` to be printed}
+
+\item{inline}{Choose between inline versus in-chunk. The default is set to be `inline = FALSE`, in-chunk.}
+}
 \description{
-Print method of `matrix` for `knitr_print`
+`knitr_print()` will now print math form in the inline, i.e. `r matrix`. Here, the function does not have to be specified. If in-chunk option is choosed, normal matrix form in R console will be printed.
 }
