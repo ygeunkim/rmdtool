@@ -2,15 +2,24 @@
 % Please edit documentation in R/latex_print.R
 \name{as_tex}
 \alias{as_tex}
+\alias{as_tex.character}
+\alias{as_tex.matrix}
 \title{Coerce characters and matrices to tex}
 \usage{
 as_tex(x, ...)
+
+\method{as_tex}{character}(x, ...)
+
+\method{as_tex}{matrix}(x, ...)
 }
 \arguments{
 \item{x}{`character` or `matrix` object to be `tex`}
 }
 \description{
 `as_tex()` can be applied to a `character` or a `matrix` object, so that the input is changed into the new object `tex`. This might make up the defect of `knitr_print` method for matrix.
+`as_tex()` is an S3 generic, with methods for:
+* [`character`][base::character()]
+* [`matrix`][methods::matrix-class]: bmatrix form of latex
 }
 \examples{
 A <- matrix(1:10, nrow = 2)
