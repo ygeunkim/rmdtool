@@ -70,8 +70,7 @@ as_tex.matrix <- function(x, ...) {
 #' A <- matrix(1:10, nrow = 2)
 #' knitr_print(as_tex(A))
 #' ```
-#' @importFrom knitr knit_print
-#' @importFrom knitr asis_output
+#' @importFrom knitr asis_output kable knit_print
 
 #' @export
 #' @rdname knit_print
