@@ -1,12 +1,20 @@
-#` @param refer of cap character same as chunk name
-#` @param title of cap character title of the latex figure
-#` @examples
-#` ```{r mpgplot, fig.cap = fig$cap("mpgplot", "Engine displacement according to hwy")}
-# mpg %>%
-#   ggplot() +
-#   aes(displ, hwy) +
-#   geom_point()
-#` ```
+#' Cross reference a figure caption
+#'
+#' list, cross reference a `fig.cap` in r markdown with label and link of pdf
+#' @param refer of `$cap` refer the figure caption, same as the chunk name
+#' @param title of `$cap` caption of the plot
+#' @param refer of `$ref` cross refer the corresponding figure by number
+#' @examples
+#' ```{r example-plot, fig.cap = fig$cap("example-plot", "Example plot")}
+#' set.seed(1)
+#' mydf <- data_frame(x = rnorm(100))
+#' mydf <- mutate(y = x * 2)
+#' mydf %>%
+#'   ggplot(aes(x, y)) +
+#'   geom_point()
+#' fig$ref("example-plot")
+#' ```
+#'
 fig <- local({
   i <- 0
   fig_ref <- list()
