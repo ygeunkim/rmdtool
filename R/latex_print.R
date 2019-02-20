@@ -61,8 +61,9 @@ as_tex.matrix <- function(x, ...) {
 #' Print tex or matrix class as latex
 #'
 #' @description
-#' `knitr_print()` will print matrix with math form in the r markdown chunk or inline. In the chunk, `results = 'asis'` option should be assigned to that chunk.
-#' Printing matrix becomes more compact. It will be printed math form in the inline, i.e. `r matrix`. Here, the function does not have to be specified. If in-chunk option is choosed, normal matrix form in R console will be printed.
+#' `knitr_print()` will print an object with math form in the r markdown chunk or inline. It can be an tex or a matrix. In the chunk, `results = 'asis'` option should be assigned to that chunk.
+#' Printing matrix becomes more compact than before. It will be printed math form in the inline, i.e. `r matrix`. Here, the function does not have to be written.
+#' If in-chunk option is choosed, normal matrix form in R console will be printed.
 #' @param x `tex` or `matrix` to be printed
 #' @param inline Choose between inline versus in-chunk. The default is set to be `inline = FALSE`, in-chunk.
 #' @examples
@@ -70,7 +71,7 @@ as_tex.matrix <- function(x, ...) {
 #' A <- matrix(1:10, nrow = 2)
 #' knitr_print(as_tex(A))
 #' ```
-#' @importFrom knitr asis_output kable knit_print
+#' @importFrom knitr knit_print
 
 #' @export
 #' @rdname knit_print
@@ -78,7 +79,7 @@ knit_print.tex <- function(x, inline = FALSE, ...) {
   if (inline) {
     x
   } else {
-    asis_output(
+    knitr::asis_output(
       paste0("$$", x, "$$")
     )
   }

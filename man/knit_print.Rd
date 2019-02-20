@@ -15,8 +15,9 @@
 \item{inline}{Choose between inline versus in-chunk. The default is set to be `inline = FALSE`, in-chunk.}
 }
 \description{
-`knitr_print()` will print matrix with math form in the r markdown chunk or inline. In the chunk, `results = 'asis'` option should be assigned to that chunk.
-Printing matrix becomes more compact. It will be printed math form in the inline, i.e. `r matrix`. Here, the function does not have to be specified. If in-chunk option is choosed, normal matrix form in R console will be printed.
+`knitr_print()` will print an object with math form in the r markdown chunk or inline. It can be an tex or a matrix. In the chunk, `results = 'asis'` option should be assigned to that chunk.
+Printing matrix becomes more compact than before. It will be printed math form in the inline, i.e. `r matrix`. Here, the function does not have to be written.
+If in-chunk option is choosed, normal matrix form in R console will be printed.
 }
 \examples{
 ```{r, results = 'asis'}
