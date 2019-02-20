@@ -71,7 +71,7 @@ as_tex.matrix <- function(x, ...) {
 #' A <- matrix(1:10, nrow = 2)
 #' knitr_print(as_tex(A))
 #' ```
-#' @importFrom knitr knit_print
+#' @import knitr
 
 #' @export
 #' @rdname knit_print
