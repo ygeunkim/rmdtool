@@ -2,7 +2,7 @@
 % Please edit documentation in R/latex_print.R
 \name{bmatrix}
 \alias{bmatrix}
-\title{Latex method for matrix}
+\title{Inline latex method for matrix}
 \usage{
 bmatrix(x)
 }

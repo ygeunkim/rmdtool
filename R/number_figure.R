@@ -7,7 +7,7 @@
 #' @examples
 #' ```{r example-plot, fig.cap = fig$cap("example-plot", "Example plot")}
 #' set.seed(1)
-#' mydf <- data_frame(x = rnorm(100))
+#' mydf <- tibble(x = rnorm(100))
 #' mydf <- mydf %>% mutate(y = x * 2)
 #' mydf %>%
 #'   ggplot(aes(x, y)) +
