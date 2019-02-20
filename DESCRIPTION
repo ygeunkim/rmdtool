@@ -15,3 +15,8 @@ Suggests:
 License: GPL
 Encoding: UTF-8
 LazyData: true
+Collate:
+    "number_figure.R"
+    "number_table.R"
+    "latex_print.R"
+RoxygenNote: 6.1.1

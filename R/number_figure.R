@@ -8,13 +8,15 @@
 #' ```{r example-plot, fig.cap = fig$cap("example-plot", "Example plot")}
 #' set.seed(1)
 #' mydf <- data_frame(x = rnorm(100))
-#' mydf <- mutate(y = x * 2)
+#' mydf <- mydf %>% mutate(y = x * 2)
 #' mydf %>%
 #'   ggplot(aes(x, y)) +
 #'   geom_point()
-#' fig$ref("example-plot")
 #' ```
-#'
+#' You might cross reference with latex block $`r fig$ref("example-plot")`$
+#' @return The number of the figure increases in order. fig$ref("chunk") returns the figure number followed by the string Figure. You don't have to worry changed order of plots while documentation.
+#' Also, they provide hyperlink in pdf document so that you can easily approach the plots.
+#' @export
 fig <- local({
   i <- 0
   fig_ref <- list()
