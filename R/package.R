@@ -6,5 +6,6 @@
 #' @name rmdtool-package
 #' @aliases rmdtool
 #' @author Young-geun Kim <\url{https://github.com/ygeunkim}>
-#' @import knitr
+#' @import utils
+#' @importFrom knitr asis_output knit_print
 NULL
