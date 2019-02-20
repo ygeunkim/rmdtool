@@ -71,15 +71,13 @@ as_tex.matrix <- function(x, ...) {
 #' A <- matrix(1:10, nrow = 2)
 #' knitr_print(as_tex(A))
 #' ```
-#' @import knitr
-
 #' @export
 #' @rdname knit_print
 knit_print.tex <- function(x, inline = FALSE, ...) {
   if (inline) {
     x
   } else {
-    knitr::asis_output(
+    asis_output(
       paste0("$$", x, "$$")
     )
   }

@@ -19,4 +19,5 @@ Collate:
     "number_figure.R"
     "number_table.R"
     "latex_print.R"
+    "package.R"
 RoxygenNote: 6.1.1
