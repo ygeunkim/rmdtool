@@ -5,9 +5,9 @@
 \alias{knit_print.matrix}
 \title{Print tex or matrix class as latex}
 \usage{
-knit_print.tex(x, inline = FALSE, ...)
+\method{knit_print}{tex}(x, inline = FALSE, ...)
 
-knit_print.matrix(x, inline = FALSE, ...)
+\method{knit_print}{matrix}(x, inline = FALSE, ...)
 }
 \arguments{
 \item{x}{`tex` or `matrix` to be printed}

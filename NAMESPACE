@@ -2,9 +2,10 @@
 
 S3method(as_tex,character)
 S3method(as_tex,matrix)
+S3method(knit_print,matrix)
+S3method(knit_print,tex)
 export(as_tex)
 export(bmatrix)
 export(fig)
-export(knit_print.matrix)
-export(knit_print.tex)
 export(tab)
+importFrom(knitr,knit_print)
