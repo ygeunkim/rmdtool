@@ -1,0 +1,63 @@
+---
+title: "Cross reference in R Markdown"
+author: "Young-geun Kim"
+date: "`r Sys.Date()`"
+output:
+  rmarkdown::pdf_document:
+    fig_caption: yes
+  rmarkdown::html_vignette:
+    fig_caption: yes
+header-includes:
+  - \usepackage{float}
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  out.width = "70%",
+  fig.align = "center",
+  fig.width = 6,
+  fig.asp = .618,
+  fig.pos = "H"
+)
+```
+
+
+```{r, message=FALSE}
+library(tidyverse)
+```
+
+We generate simple data set.
+
+```{r}
+set.seed(1)
+mydf <- tibble(x = rnorm(1000))
+(mydf <-
+  mydf %>% 
+  mutate(y = 3 * x + rnorm(1000)))
+```
+
+# Cross referencing
+
+You will use `fig()` and `tab()`. To know how to use these function, you should see the `rmd` file itself, not the rendered file.
+
+```{r}
+library(rmdtool)
+```
+
+## Figure caption
+
+```{r scatter-plot, fig.cap = fig$cap("scatter-plot", "Scatter plot of the generated data")}
+mydf %>% 
+  ggplot(aes(x, y)) +
+  geom_point()
+```
+
+You can refer the above plot anywhere in the same file by `r fig$ref("scatter-plot")`
+
+
