@@ -20,8 +20,8 @@ fig <- local({
     cap = function(refer, title) {
       i <<- i + 1
       # fig_ref[[refer]] <<- paste("Figure", i)
-      fig_ref[[refer]] <<- paste("Figure ", "\\ref{", refer, "}", sep = "") # \ref{refer} = linked i
-      paste(title, "\\label{", refer, "}", sep = "")
+      fig_ref[[refer]] <<- paste0("Figure ", "\\ref{fig:", refer, "}")
+      paste0(title, "\\label{fig:", refer, "}")
     },
     ref = function(refer) {
       fig_ref[[refer]]
