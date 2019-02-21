@@ -16,9 +16,9 @@ This function is designed to use in the latex block. Output in the chunk might u
 Write R matrix object in Latex block
 }
 \examples{
-```{r}
-A <- matrix(1:10, nrow = 3)
-```
-You can write the matrix A in the inline $`r bmatrix(A)`$ or
-$$`r bmatrix(A)`$$
+# ```{r}
+# A <- matrix(1:10, nrow = 3)
+# ```
+# You can write the matrix A in the inline $`r bmatrix(A)`$ or
+# $$`r bmatrix(A)`$$
 }

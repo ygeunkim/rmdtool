@@ -23,14 +23,9 @@ Also, they provide hyperlink in pdf document so that you can easily approach the
 list, cross reference a `fig.cap` in r markdown with label and link of pdf
 }
 \examples{
-```{r example-plot, fig.cap = fig$cap("example-plot", "Example plot")}
-set.seed(1)
-mydf <- tibble(x = rnorm(100))
-mydf <- mydf \%>\% mutate(y = x * 2)
-mydf \%>\%
-  ggplot(aes(x, y)) +
-  geom_point()
-```
-You might cross reference with latex block $`r fig$ref("example-plot")`$
+# ```{r example-plot, fig.cap = fig$cap("example-plot", "Example plot")}
+# draw any plot
+# ```
+# You might cross reference with latex block $`r fig$ref("example-plot")`$
 }
 \keyword{datasets}

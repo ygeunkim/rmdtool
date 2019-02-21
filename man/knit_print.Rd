@@ -20,8 +20,9 @@ Printing matrix becomes more compact than before. It will be printed math form i
 If in-chunk option is choosed, normal matrix form in R console will be printed.
 }
 \examples{
-```{r, results = 'asis'}
-A <- matrix(1:10, nrow = 2)
-knitr_print(as_tex(A))
-```
+# ```{r, results = 'asis'}
+# A <- matrix(1:10, nrow = 2)
+# knitr_print(as_tex(A))
+# ```
+# In case of matrix, $`r A`$ or $$`r A`$$ works.
 }

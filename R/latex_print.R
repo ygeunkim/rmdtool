@@ -4,11 +4,11 @@
 #' Write R matrix object in Latex block
 #' @param x R matrix object
 #' @examples
-#' ```{r}
-#' A <- matrix(1:10, nrow = 3)
-#' ```
-#' You can write the matrix A in the inline $`r bmatrix(A)`$ or
-#' $$`r bmatrix(A)`$$
+#' # ```{r}
+#' # A <- matrix(1:10, nrow = 3)
+#' # ```
+#' # You can write the matrix A in the inline $`r bmatrix(A)`$ or
+#' # $$`r bmatrix(A)`$$
 #' @return This function is designed to use in the latex block. Output in the chunk might useless. For chunk usage, `paste()` of last line should be replaced by `writeLines()`.
 #' @export
 bmatrix <- function(x) {
@@ -67,10 +67,11 @@ as_tex.matrix <- function(x, ...) {
 #' @param x `tex` or `matrix` to be printed
 #' @param inline Choose between inline versus in-chunk. The default is set to be `inline = FALSE`, in-chunk.
 #' @examples
-#' ```{r, results = 'asis'}
-#' A <- matrix(1:10, nrow = 2)
-#' knitr_print(as_tex(A))
-#' ```
+#' # ```{r, results = 'asis'}
+#' # A <- matrix(1:10, nrow = 2)
+#' # knitr_print(as_tex(A))
+#' # ```
+#' # In case of matrix, $`r A`$ or $$`r A`$$ works.
 #' @export
 #' @rdname knit_print
 knit_print.tex <- function(x, inline = FALSE, ...) {
