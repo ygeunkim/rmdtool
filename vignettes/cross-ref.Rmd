@@ -3,9 +3,9 @@ title: "Cross reference in R Markdown"
 author: "Young-geun Kim"
 date: "`r Sys.Date()`"
 output:
-  rmarkdown::pdf_document:
-    fig_caption: yes
   rmarkdown::html_vignette:
+    fig_caption: yes
+  rmarkdown::pdf_document:
     fig_caption: yes
 header-includes:
   - \usepackage{float}
