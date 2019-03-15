@@ -17,14 +17,21 @@ fig <- local({
   i <- 0
   fig_ref <- list()
   list(
-    cap = function(refer, title) {
+    cap = function(refer, title, inline = TRUE, ...) {
       i <<- i + 1
-      # fig_ref[[refer]] <<- paste("Figure", i)
-      fig_ref[[refer]] <<- paste0("Figure ", "\\ref{fig:", refer, "}")
-      paste0(title, "\\label{fig:", refer, "}")
+      fig_ref[[refer]] <<- paste0("\\text{Figure }", "\\ref{fig:", refer, "}")
+      if (inline) {
+        as_tex(paste0(title, "\\label{fig:", refer, "}"))
+      } else {
+        paste0(title, "\\label{fig:", refer, "}")
+      }
     },
-    ref = function(refer) {
-      fig_ref[[refer]]
+    ref = function(refer, inline = TRUE, ...) {
+      if (inline) {
+        as_tex(fig_ref[[refer]])
+      } else {
+        print(fig_ref[[refer]])
+      }
     }
   )
 })

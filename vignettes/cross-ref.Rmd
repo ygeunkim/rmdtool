@@ -3,8 +3,7 @@ title: "Cross reference in R Markdown"
 author: "Young-geun Kim"
 date: "`r Sys.Date()`"
 output:
-  rmarkdown::pdf_document:
-    fig_caption: yes
+  rmarkdown::pdf_document: default
   rmarkdown::html_vignette:
     fig_caption: yes
 header-includes:
@@ -28,6 +27,11 @@ knitr::opts_chunk$set(
 )
 ```
 
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
 
 ```{r, message=FALSE}
 library(tidyverse)
@@ -53,12 +57,14 @@ library(rmdtool)
 
 ## Figure caption
 
-```{r scatter-plot, fig.cap = fig$cap("scatter-plot", "Scatter plot of the generated data")}
+```{r scat, fig.cap = fig$cap("scat", "Scatter plot of the generated data")}
 mydf %>% 
   ggplot(aes(x, y)) +
   geom_point()
 ```
 
-You can refer the above plot anywhere in the same file by `r fig$ref("scatter-plot")`
+You can refer the above plot anywhere in the same file by $`r fig$ref("scat")`$
+
+
 
 

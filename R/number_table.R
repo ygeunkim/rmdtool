@@ -11,13 +11,21 @@ tab <- local({
   j <- 0
   tab_ref <- list()
   list(
-    cap = function(refer, title) {
+    cap = function(refer, title, inline = TRUE, ...) {
       j <<- j + 1
-      tab_ref[[refer]] <<- paste("Table ", "\\ref{", refer, "}", sep = "")
-      paste(title, "\\label{", refer, "}", sep = "")
+      tab_ref[[refer]] <<- paste0("\\text{Table }", "\\ref{", refer, "}")
+      if (inline) {
+        as_tex(paste0(title, "\\label{table:", refer, "}"))
+      } else {
+        paste0(title, "\\label{table:", refer, "}")
+      }
     },
-    ref = function(refer) {
-      tab_ref[[refer]]
+    ref = function(refer, inline = TRUE, ...) {
+      if (inline) {
+        as_tex(tab_ref[[refer]])
+      } else {
+        print(tab_ref[[refer]])
+      }
     }
   )
 })
