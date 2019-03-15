@@ -23,5 +23,6 @@ Collate:
     "number_table.R"
     "latex_print.R"
     "package.R"
+    "eqn_ref.R"
 RoxygenNote: 6.1.1
 VignetteBuilder: knitr
