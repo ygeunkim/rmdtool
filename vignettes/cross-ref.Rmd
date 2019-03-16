@@ -3,9 +3,9 @@ title: "Cross reference in R Markdown"
 author: "Young-geun Kim"
 date: "`r Sys.Date()`"
 output:
-  rmarkdown::pdf_document: default
   rmarkdown::html_vignette:
     fig_caption: yes
+  rmarkdown::pdf_document: default
 header-includes:
   - \usepackage{float}
 vignette: >
@@ -26,12 +26,6 @@ knitr::opts_chunk$set(
   fig.pos = "H"
 )
 ```
-
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  TeX: { equationNumbers: { autoNumber: "AMS" } }
-});
-</script>
 
 ```{r, message=FALSE}
 library(tidyverse)
@@ -55,7 +49,29 @@ You will use `fig()` and `tab()`. To know how to use these function, you should 
 library(rmdtool)
 ```
 
+At the beginning of the document, excecute `eqn_numbering()` with `results = 'asis'` if you want to use equation referencing in html document.
+
+```{r, echo=FALSE, results='asis'}
+eqn_numbering()
+```
+
 ## Figure caption
+
+### How to do
+
+Look at the `fig.cap` option below.
+
+````markdown
+`r ''````{r scat, fig.cap = fig$cap("scat", "Scatter plot of the generated data")}
+````
+
+To reference above figure, write
+
+```{r, echo=FALSE, comment=NA}
+writeLines("$`r fig$ref(\"scat\")`$")
+```
+
+### Demo
 
 ```{r scat, fig.cap = fig$cap("scat", "Scatter plot of the generated data")}
 mydf %>% 
@@ -64,7 +80,5 @@ mydf %>%
 ```
 
 You can refer the above plot anywhere in the same file by $`r fig$ref("scat")`$
-
-
 
 
