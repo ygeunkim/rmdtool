@@ -28,4 +28,7 @@ list, cross reference a `fig.cap` in r markdown with label and link of pdf
 # ```
 # You might cross reference with latex block $`r fig$ref("example-plot")`$
 }
+\seealso{
+\code{\link{tab}} Table numbering
+}
 \keyword{datasets}

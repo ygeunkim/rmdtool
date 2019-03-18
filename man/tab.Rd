@@ -21,4 +21,7 @@ Everything is same but Figure versus Table.
 \description{
 list, cross reference a table in r markdown with label and link of pdf
 }
+\seealso{
+\code{\link{fig}} Figure numbering
+}
 \keyword{datasets}

@@ -12,6 +12,7 @@
 #' # You might cross reference with latex block $`r fig$ref("example-plot")`$
 #' @return The number of the figure increases in order. fig$ref("chunk") returns the figure number followed by the string Figure. You don't have to worry changed order of plots while documentation.
 #' Also, they provide hyperlink in pdf document so that you can easily approach the plots.
+#' @seealso \code{\link{tab}} Table numbering
 #' @export
 fig <- local({
   i <- 0
