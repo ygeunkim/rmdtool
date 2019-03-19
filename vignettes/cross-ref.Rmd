@@ -2,17 +2,17 @@
 title: "Cross reference in R Markdown"
 author: "Young-geun Kim"
 date: "`r Sys.Date()`"
+vignette: >
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteIndexEntry{Cross reference in R Markdown}
+  %\VignetteEncoding{UTF-8}
 output:
   rmarkdown::html_vignette:
+    toc: yes
     fig_caption: yes
   rmarkdown::pdf_document: default
 header-includes:
   - \usepackage{float}
-vignette: >
-  %\VignetteIndexEntry{Cross reference in R Markdown}
-  %\VignetteEncoding{UTF-8}
-  \usepackage{float}
-  %\VignetteEngine{knitr::rmarkdown}
 ---
 
 ```{r setup, include = FALSE}
