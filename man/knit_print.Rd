@@ -13,6 +13,8 @@
 \item{x}{`tex` or `matrix` to be printed}
 
 \item{inline}{Choose between inline versus in-chunk. The default is set to be `inline = FALSE`, in-chunk.}
+
+\item{...}{Additional arguments passed to the S3 method.}
 }
 \description{
 `knitr_print()` will print an object with math form in the r markdown chunk or inline. It can be an tex or a matrix. In the chunk, `results = 'asis'` option should be assigned to that chunk.
@@ -20,11 +22,14 @@ Printing matrix becomes more compact than before. It will be printed math form i
 If in-chunk option is choosed, normal matrix form in R console will be printed.
 }
 \examples{
-# ```{r, results = 'asis'}
-# A <- matrix(1:10, nrow = 2)
-# knitr_print(as_tex(A))
-# ```
-# In case of matrix, $`r A`$ or $$`r A`$$ works.
+A <- matrix(1:9, nrow = 3)
+library(knitr) # to use knit_print() function directly, knitr package needed
+knit_print(as_tex(A))
+knit_print(as_tex(A), inline = TRUE)
+knit_print(A)
+knit_print(A, inline = TRUE)
+## In case of matrix, $`r A`$ or $$`r A`$$ works.
+## vignette will provide the details.
 }
 \seealso{
 \code{\link{bmatrix}} Printing matrix latex form by using the function

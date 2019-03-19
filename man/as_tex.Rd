@@ -14,11 +14,13 @@ as_tex(x, ...)
 }
 \arguments{
 \item{x}{`character` or `matrix` object to be `tex`}
+
+\item{...}{Additional arguments passed to the S3 method.}
 }
 \description{
 `as_tex()` can be applied to a `character` or a `matrix` object, so that the input is changed into the new object `tex`. This might make up the defect of `knitr_print` method for matrix.
 }
 \examples{
-A <- matrix(1:10, nrow = 2)
+A <- matrix(1:9, nrow = 3)
 as_tex(A)
 }

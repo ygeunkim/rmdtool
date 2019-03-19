@@ -6,11 +6,10 @@
 #' By this one function, same things can be done as \code{\link{knit_print.matrix}}, althogh you should specify the function.
 #' @param x R matrix object
 #' @examples
-#' # ```{r}
-#' # A <- matrix(1:10, nrow = 3)
-#' # ```
-#' # You can write the matrix A in the inline $`r bmatrix(A)`$ or
-#' # $$`r bmatrix(A)`$$
+#' A <- matrix(1:9, nrow = 3)
+#' bmatrix(A)
+#' ## You can write the matrix A in the inline $`r bmatrix(A)`$ or
+#' ## $$`r bmatrix(A)`$$
 #' @return This function is designed to use in the latex block. Output in the chunk might useless. For chunk usage, `paste()` of last line should be replaced by `writeLines()`.
 #' @seealso \code{\link{knit_print.matrix}}
 #' @export
@@ -32,8 +31,9 @@ bmatrix <- function(x) {
 #' @description
 #' `as_tex()` can be applied to a `character` or a `matrix` object, so that the input is changed into the new object `tex`. This might make up the defect of `knitr_print` method for matrix.
 #' @param x `character` or `matrix` object to be `tex`
+#' @param ... Additional arguments passed to the S3 method.
 #' @examples
-#' A <- matrix(1:10, nrow = 2)
+#' A <- matrix(1:9, nrow = 3)
 #' as_tex(A)
 #' @export
 as_tex <- function(x, ...) {
@@ -69,12 +69,16 @@ as_tex.matrix <- function(x, ...) {
 #' If in-chunk option is choosed, normal matrix form in R console will be printed.
 #' @param x `tex` or `matrix` to be printed
 #' @param inline Choose between inline versus in-chunk. The default is set to be `inline = FALSE`, in-chunk.
+#' @param ... Additional arguments passed to the S3 method.
 #' @examples
-#' # ```{r, results = 'asis'}
-#' # A <- matrix(1:10, nrow = 2)
-#' # knitr_print(as_tex(A))
-#' # ```
-#' # In case of matrix, $`r A`$ or $$`r A`$$ works.
+#' A <- matrix(1:9, nrow = 3)
+#' library(knitr) # to use knit_print() function directly, knitr package needed
+#' knit_print(as_tex(A))
+#' knit_print(as_tex(A), inline = TRUE)
+#' knit_print(A)
+#' knit_print(A, inline = TRUE)
+#' ## In case of matrix, $`r A`$ or $$`r A`$$ works.
+#' ## vignette will provide the details.
 #' @seealso \code{\link{bmatrix}} Printing matrix latex form by using the function
 #' @export
 #' @rdname knit_print

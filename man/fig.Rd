@@ -8,25 +8,23 @@
 \usage{
 fig
 }
-\arguments{
-\item{refer}{of `$cap` refer the figure caption, same as the chunk name}
-
-\item{title}{of `$cap` caption of the plot}
-
-\item{refer}{of `$ref` cross refer the corresponding figure by number}
-}
 \value{
 The number of the figure increases in order. fig$ref("chunk") returns the figure number followed by the string Figure. You don't have to worry changed order of plots while documentation.
 Also, they provide hyperlink in pdf document so that you can easily approach the plots.
+\item{refer}{of `$cap` refer the figure caption, same as the chunk name}
+\item{title}{of `$cap` caption of the plot}
+\item{refer}{of `$ref` cross refer the corresponding figure by number}
 }
 \description{
 list, cross reference a `fig.cap` in r markdown with label and link of pdf
 }
 \examples{
-# ```{r example-plot, fig.cap = fig$cap("example-plot", "Example plot")}
-# draw any plot
-# ```
-# You might cross reference with latex block $`r fig$ref("example-plot")`$
+library(ggplot2)
+ggplot(data = mpg, aes(x = displ, y = hwy)) +
+  geom_point() +
+  labs(caption = fig$cap("fig-chunk-name", "Caption name"))
+fig$ref("fig-chunk-name")
+## For detailed usage, see the vignette
 }
 \seealso{
 \code{\link{tab}} Table numbering

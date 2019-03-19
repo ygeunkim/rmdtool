@@ -4,8 +4,8 @@ Title: Private Tools to document in R
 Version: 0.1.0
 Authors@R: person("Young-geun", "Kim", email = "dudrmshub@gmail.com", role = c("aut", "cre"))
 Maintainer: Young-geun Kim <dudrmshub@gmail.com>
-Description: Provides assistant tools for R markdown
-    mainly in pdf documents
+Description: Provides assistant tools for R markdown, mainly in pdf documents.
+    Some of them also try to support html.
 Imports:
     knitr
 Suggests:

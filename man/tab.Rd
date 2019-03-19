@@ -3,23 +3,24 @@
 \docType{data}
 \name{tab}
 \alias{tab}
-\title{Cross reference a figure caption}
+\title{Cross reference a table caption}
 \format{An object of class \code{list} of length 2.}
 \usage{
 tab
 }
-\arguments{
-\item{refer}{of `$cap` refer the table caption, same as the table name}
-
-\item{title}{of `$cap` caption of the table}
-
-\item{refer}{of `$ref` cross refer the corresponding table by number}
-}
 \value{
 Everything is same but Figure versus Table.
+\item{refer}{of `$cap` refer the table caption, same as the chunk name}
+\item{title}{of `$cap` caption of the table}
+\item{refer}{of `$ref` cross refer the corresponding table by number}
 }
 \description{
 list, cross reference a table in r markdown with label and link of pdf
+}
+\examples{
+knitr::kable(ggplot2::mpg, caption = tab$cap("tab-chunk-name", "Caption name"))
+tab$ref("tab-chunk-name")
+## For detailed usage, see the vignette
 }
 \seealso{
 \code{\link{fig}} Figure numbering

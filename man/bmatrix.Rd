@@ -18,11 +18,10 @@ This function might be useful as an alternative to implementing the whole packag
 By this one function, same things can be done as \code{\link{knit_print.matrix}}, althogh you should specify the function.
 }
 \examples{
-# ```{r}
-# A <- matrix(1:10, nrow = 3)
-# ```
-# You can write the matrix A in the inline $`r bmatrix(A)`$ or
-# $$`r bmatrix(A)`$$
+A <- matrix(1:9, nrow = 3)
+bmatrix(A)
+## You can write the matrix A in the inline $`r bmatrix(A)`$ or
+## $$`r bmatrix(A)`$$
 }
 \seealso{
 \code{\link{knit_print.matrix}}
