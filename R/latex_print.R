@@ -1,7 +1,8 @@
 #' Inline latex method for matrix
 #'
 #' @description
-#' Write R matrix object in Latex block
+#' Write R matrix object in Latex block; this function might be useful as an alternative to implementing the whole package.
+#' By this one function, same things can be done as \code{\link{knit_print.matrix}}, althogh you should specify the function.
 #' @param x R matrix object
 #' @examples
 #' # ```{r}
@@ -10,6 +11,7 @@
 #' # You can write the matrix A in the inline $`r bmatrix(A)`$ or
 #' # $$`r bmatrix(A)`$$
 #' @return This function is designed to use in the latex block. Output in the chunk might useless. For chunk usage, `paste()` of last line should be replaced by `writeLines()`.
+#' @seealso \code{\link{knit_print.matrix}}
 #' @export
 bmatrix <- function(x) {
   begin <- "\\begin{bmatrix}"
@@ -72,6 +74,7 @@ as_tex.matrix <- function(x, ...) {
 #' # knitr_print(as_tex(A))
 #' # ```
 #' # In case of matrix, $`r A`$ or $$`r A`$$ works.
+#' @seealso \code{\link{bmatrix}} Printing matrix latex form by using the function
 #' @export
 #' @rdname knit_print
 knit_print.tex <- function(x, inline = FALSE, ...) {
