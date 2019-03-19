@@ -13,7 +13,9 @@ bmatrix(x)
 This function is designed to use in the latex block. Output in the chunk might useless. For chunk usage, `paste()` of last line should be replaced by `writeLines()`.
 }
 \description{
-Write R matrix object in Latex block
+Write R matrix object in Latex block.
+This function might be useful as an alternative to implementing the whole package.
+By this one function, same things can be done as \code{\link{knit_print.matrix}}, althogh you should specify the function.
 }
 \examples{
 # ```{r}
@@ -21,4 +23,7 @@ Write R matrix object in Latex block
 # ```
 # You can write the matrix A in the inline $`r bmatrix(A)`$ or
 # $$`r bmatrix(A)`$$
+}
+\seealso{
+\code{\link{knit_print.matrix}}
 }

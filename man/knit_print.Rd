@@ -26,3 +26,6 @@ If in-chunk option is choosed, normal matrix form in R console will be printed.
 # ```
 # In case of matrix, $`r A`$ or $$`r A`$$ works.
 }
+\seealso{
+\code{\link{bmatrix}} Printing matrix latex form by using the function
+}

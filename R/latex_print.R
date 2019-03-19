@@ -1,7 +1,8 @@
 #' Inline latex method for matrix
 #'
 #' @description
-#' Write R matrix object in Latex block. This function might be useful as an alternative to implementing the whole package.
+#' Write R matrix object in Latex block.
+#' This function might be useful as an alternative to implementing the whole package.
 #' By this one function, same things can be done as \code{\link{knit_print.matrix}}, althogh you should specify the function.
 #' @param x R matrix object
 #' @examples
