@@ -3,14 +3,15 @@ title: "Cross reference in R Markdown"
 author: "Young-geun Kim"
 date: "`r Sys.Date()`"
 vignette: >
-  %\VignetteEngine{knitr::rmarkdown}
   %\VignetteIndexEntry{Cross reference in R Markdown}
   %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
 output:
+  rmarkdown::pdf_document:
+    toc: yes
   rmarkdown::html_vignette:
     toc: yes
     fig_caption: yes
-  rmarkdown::pdf_document: default
 header-includes:
   - \usepackage{float}
 ---
@@ -27,6 +28,14 @@ knitr::opts_chunk$set(
 )
 ```
 
+# Installation
+
+```{r, eval=FALSE}
+devtools::install_github("ygeunkim/rmdtool")
+```
+
+***
+
 ```{r, message=FALSE}
 library(dplyr)
 library(ggplot2)
@@ -42,21 +51,41 @@ mydf <- tibble(x = rnorm(1000))
   mutate(y = 3 * x + rnorm(1000)))
 ```
 
+***
+
 # Cross referencing
 
-You will use `fig()` and `tab()`. To know how to use these function, you should see the [`rmd` file itself](https://github.com/ygeunkim/rmdtool/blob/master/vignettes/cross-ref.Rmd), not the rendered file.
+Numbering equations, figures, and tables is a key factor in documentation. Referencing helps these numbers meaningful and useful both when writing and reading.
 
 ```{r}
 library(rmdtool)
 ```
 
-At the beginning of the document, excecute `eqn_numbering()` with `results = 'asis'` if you want to use equation referencing in html document.
+## Equation
+
+At the beginning of the document, excecute `eqn_numbering()` with `results = 'asis'` if you want to use equation referencing in html document. This writes the script:
+
+```
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+```
 
 ```{r, echo=FALSE, results='asis'}
 eqn_numbering()
 ```
 
+\begin{equation} \label{eq:regression}
+  y_i = \beta_0 + \beta_1 x_i + \epsilon_i
+\end{equation}
+
+Equation $\eqref{eq:regression}$ also works in html. See the Rmd file for the code.
+
 ## Figure caption
+
+You will use `fig()` and `tab()`. To know how to use these function, you should see the [`rmd` file itself](https://github.com/ygeunkim/rmdtool/blob/master/vignettes/cross-ref.Rmd), not the rendered file.
 
 ### How to do
 
@@ -81,5 +110,22 @@ mydf %>%
 ```
 
 You can refer the above plot anywhere in the same file by $`r fig$ref("scat")`$
+
+## Table caption
+
+Similarly, `tab()` works for the table.
+
+```{r dftable}
+knitr::kable(head(mydf), caption = tab$cap("dftable", "Kable representation for tibble"))
+```
+
+To reference above table, write
+
+```{r, echo=FALSE, comment=NA}
+writeLines("$`r tab$ref(\"dftable\")`$")
+```
+
+Now you can refer the above table by $`r tab$ref("dftable")`$
+
 
 
