@@ -13,7 +13,7 @@ Suggests:
     pander,
     ggplot2,
     rmarkdown
-License: GPL
+License: MIT
 URL: https://github.com/ygeunkim
 BugReports: https://github.com/ygeunkim/rmdtool/issues
 Encoding: UTF-8
